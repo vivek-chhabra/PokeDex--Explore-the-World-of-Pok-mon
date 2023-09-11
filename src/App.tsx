@@ -7,12 +7,14 @@ function App() {
     const [count, setCount] = useState(0);
 
     return (
-        <div className="App">
-          <Background />
-            <div className="content">
-                <Navbar />
+        <>
+            <Background />
+            <div className="App">
+                <div className="content">
+                    <Navbar />
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
