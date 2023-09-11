@@ -1,3 +1,31 @@
-.App {
-    
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all ease .2s;
+    position: relative;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+// utility classes
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+
 }
