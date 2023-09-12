@@ -1,4 +1,6 @@
+@import "../../Styles/breakpoints";
 @import "../../Styles/variables";
+@import "../../Styles/mixins";
 
 .Navbar {
     width: 100%;
@@ -7,6 +9,21 @@
     font-size: 1.6rem;
     padding: 0.8rem 1.5rem;
     transition: none;
+
+    &.active {
+        @include md {
+            .fa-xmark {
+                display: flex !important;
+            }
+            .fa-bars {
+                display: none !important;
+            }
+        }
+        .links {
+            opacity: 1;
+            transform: translateX(0rem);
+        }
+    }
 
     .img {
         width: 6rem;
@@ -21,6 +38,32 @@
         width: 60rem;
         gap: 1.5rem;
 
+        @include md {
+            width: 27rem;
+            height: 100vh;
+            position: fixed;
+            right: 0;
+            top: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: $bg-color;
+            padding: 3rem;
+            top: 3rem;
+            gap: 2.5rem;
+            opacity: 0;
+            transform: translateX(30rem);
+
+            &::before {
+                content: '';
+                width: 120%;
+                height: 3px;
+                border-radius: 1rem;
+                background-color: rgba(255, 255, 255, 0.266);
+                margin-block: 1.5rem;
+            }
+        }
+
         .link {
             display: flex;
             flex-direction: column;
@@ -33,6 +76,9 @@
                 white-space: pre;
                 letter-spacing: 1px;
             }
+            @include md {
+                flex: none;
+            }
         }
 
         .active {
@@ -44,6 +90,10 @@
                 border-radius: 1rem;
                 background-color: rgb(255, 134, 119);
                 top: 2rem;
+
+                @include md {
+                    display: none;
+                }
             }
         }
     }
@@ -53,5 +103,12 @@
         padding: 1rem;
         font-size: 2.5rem;
         cursor: pointer;
+
+        &.fa-xmark {
+            display: none;
+            // @include md {
+            //     display: block;
+            // }
+        }
     }
 }

@@ -19,10 +19,14 @@ const childVariant = {
 };
 
 export default function Navbar({}: Props) {
-    const [activeNav, setActiveNav] = useState(false)
+    const [activeNav, setActiveNav] = useState(false);
+
+    const handleNav = () => {
+        setActiveNav((prev) => !prev);
+    };
 
     return (
-        <motion.div className={`Navbar flex ${activeNav && 'active'}`} initial="hidden" whileInView="visible" variants={container} viewport={{ amount: 0.5, once: true }}>
+        <motion.div className={`Navbar flex ${activeNav && "active"}`} initial="hidden" whileInView="visible" variants={container} viewport={{ amount: 0.5, once: true }}>
             <div className="img">
                 <img src={img} alt="" />
             </div>
@@ -58,7 +62,8 @@ export default function Navbar({}: Props) {
                     <div className="active-bar" style={{ backgroundColor: "" }}></div>
                 </NavLink>
             </div>
-            <i className="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars" onClick={handleNav}></i>
+            <i className="fa-solid fa-xmark" onClick={handleNav}></i>
         </motion.div>
     );
 }
