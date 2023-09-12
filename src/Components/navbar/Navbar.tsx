@@ -1,14 +1,15 @@
 import "./Navbar.scss";
 import img from "../../Assets/pokeball.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 type Props = {};
 
 const container = {
     hidden: {},
     visible: {
-        transition: { staggerChildren: 0.1, ease: 'linear' },
+        transition: { staggerChildren: 0.1, ease: "linear" },
     },
 };
 
@@ -18,8 +19,10 @@ const childVariant = {
 };
 
 export default function Navbar({}: Props) {
+    const [activeNav, setActiveNav] = useState(false)
+
     return (
-        <motion.div initial="hidden" whileInView="visible" variants={container} viewport={{ amount: 0.5, once: true }} className="Navbar flex">
+        <motion.div className={`Navbar flex ${activeNav && 'active'}`} initial="hidden" whileInView="visible" variants={container} viewport={{ amount: 0.5, once: true }}>
             <div className="img">
                 <img src={img} alt="" />
             </div>
